@@ -1,5 +1,5 @@
 (function() {
-  var async, debug, util, _,
+  var async, util, _,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   util = require('util');
@@ -7,8 +7,6 @@
   async = require('async');
 
   _ = require('underscore');
-
-  debug = require('debug')('mongoose-any-index:lib/index');
 
   module.exports = function(schema, options) {
     _(options).each(function(index_spec) {
@@ -36,7 +34,6 @@
             if (match != null) {
               return cb_fe();
             }
-            debug("no match for " + (util.inspect(index)) + ", should be dropped");
             return cb_fe();
           }, cb_wf);
         }

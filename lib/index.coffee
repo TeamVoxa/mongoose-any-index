@@ -1,7 +1,7 @@
 util = require 'util'
 async = require 'async'
 _ = require 'underscore'
-debug = require('debug') 'mongoose-any-index:lib/index'
+#debug = require('debug') 'mongoose-any-index:lib/index'
 
 module.exports = (schema, options) ->
   _(options).each (index_spec) ->
@@ -21,7 +21,7 @@ module.exports = (schema, options) ->
             _(schema_index_spec[0]).isEqual index.key
           return cb_fe() if match?
           # https://jira.mongodb.org/browse/SERVER-9856 makes this unsafe
-          debug "no match for #{util.inspect(index)}, should be dropped"
+          #debug "no match for #{util.inspect(index)}, should be dropped"
           # @collection.dropIndex index.name, cb_fe
           cb_fe()
         , cb_wf
